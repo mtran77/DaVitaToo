@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import ForgeReconciler, { Text } from '@forge/react';
 import { invoke } from '@forge/bridge';
 
-function App() {
+const App = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -9,11 +10,15 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <button onClick={() => view.close()}>Close</button>
-      {data ? data : 'Loading...'}
-    </div>
+    <>
+      <Text>Testing 4:27</Text>
+      <Text>{data ? data : 'Loading...'}</Text>
+    </>
   );
-}
+};
 
-export default App;
+ForgeReconciler.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
