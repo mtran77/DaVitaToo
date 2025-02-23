@@ -1,0 +1,18 @@
+modules:
+  confluence:contentAction:
+    - key: davita-hello-world-content-action
+      resource: main
+      resolver:
+        function: resolver
+      viewportSize: medium
+      title: DaVita
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  runtime:
+    name: nodejs22.x
+  id: ari:cloud:ecosystem::app/1a114f1a-284e-4d37-8ebc-e45710e1cd35
