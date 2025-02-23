@@ -5,7 +5,7 @@ const resolver = new Resolver();
 resolver.define('getText', (req) => {
   console.log(req);
 
-  return 'Hello, world!';
+  return 'coming from index.js';
 });
 
 export const handler = resolver.getDefinitions();

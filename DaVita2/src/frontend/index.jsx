@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <>
-      <Text>Testing 4:27</Text>
+      <Text> 5:19 coming from index.jsx</Text>
       <Text>{data ? data : 'Loading...'}</Text>
     </>
   );
