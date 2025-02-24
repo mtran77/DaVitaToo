@@ -11,8 +11,8 @@ export async function searchDocumentsByTagsTEST(tags) {
     const cqlQuery = tags.map(tag => `label = "{tag}"`).join(' OR ');
     const  encodedCql = encodeURIComponent(`(${cqlQuery}) ORDER BY lastModified DESC`);
     //Create URL (for search endpoint) - limit is 10 - then expand the body.view fields
-    //Change Later: https://davitacapstone.atlassian.net/wiki/home
-    const URL = `https://davitacapstone.atlassian.net/wiki/rest/api/content/search?limit=10&cql=${encodedCql}&expand=space,body.view`;
+    //Change Later: https://miscapstones25.atlassian.net/wiki/home
+    const URL = `https://miscapstones25.atlassian.net/wiki/rest/api/content/search?limit=10&cql=${encodedCql}&expand=space,body.view`;
     //Forge Fetch to Confluence REST API
     const response = await api.fetch(URL, {
         headers:{
@@ -33,7 +33,7 @@ export async function searchDocumentsByTagsTEST(tags) {
 
 export async function getDocumentByIdTEST(pageId) {
   //build the URL to fetch a specific doc by id
-  const url = `https://davitacapstone.atlassian.net/wiki/rest/api/content/${pageId}?expand=body.view`;
+  const url = `https://miscapstones25.atlassian.net/wiki/rest/api/content/${pageId}?expand=body.view`;
 
   const response = await api.fetch(url, {
     headers: {
