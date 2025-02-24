@@ -1,21 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import ForgeReconciler, { Text } from '@forge/react';
-import { invoke } from '@forge/bridge';
-
-const App = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    invoke('getText', { example: 'my-invoke-variable' }).then(setData);
-  }, []);
-
-  return (
-    <>
-      <Text> 5:19 coming from index.jsx</Text>
-      <Text>{data ? data : 'Loading...'}</Text>
-    </>
-  );
-};
+import React from 'react';
+import ForgeReconciler from '@forge/react';
+import App from './App.jsx';
 
 ForgeReconciler.render(
   <React.StrictMode>
