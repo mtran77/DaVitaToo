@@ -23,13 +23,13 @@ export async function generateResponse(question, context) {
   };
 
   // call POST request to OpenAI's API - payload
-    // openaI key: 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
   const response = await api.fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       //TO DO: store as an environment variable
-      'Authorization': 'Bearer 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' 
+      // had to removee openai api key due to github. will add back in testing/deploying or when I set up environment variables. whatever comes first. 
+      'Authorization': 'Bearer OPEN_APIKEY' 
     },
     body: JSON.stringify(payload)
   });
