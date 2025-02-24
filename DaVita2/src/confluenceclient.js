@@ -4,10 +4,6 @@ import { searchDocumentsByTags, getDocumentById } from './confluenceclient';
 to retreive data from confluence into Forge (resolver?)
 */
 import api from '@forge/api';
-
-
- //@param {Array<string>} tags
- //@returns {Promise<Array>}
  
 export async function searchDocumentsByTagsTEST(tags) {
     // search by tags and most recent
@@ -34,10 +30,6 @@ export async function searchDocumentsByTagsTEST(tags) {
   const data = await response.json();
   return data.results;
 }
-
-
- //@param {string} pageId
- //@returns {Promise<Object>} 
 
 export async function getDocumentByIdTEST(pageId) {
   //build the URL to fetch a specific doc by id
