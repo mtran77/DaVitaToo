@@ -2,7 +2,8 @@
 /* Call to run:
 import { generateResponse } from './openaiclient'; 
 */
-
+import dotenv from 'dotenv';
+dotenv.config();
 import api from '@forge/api';
 
 
@@ -27,9 +28,7 @@ export async function generateResponse(question, context) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      //TO DO: store as an environment variable
-      // had to removee openai api key due to github. will add back in testing/deploying or when I set up environment variables. whatever comes first. 
-      'Authorization': 'Bearer OPEN_APIKEY' 
+      'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
     },
     body: JSON.stringify(payload)
   });
