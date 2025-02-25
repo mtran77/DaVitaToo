@@ -4,6 +4,8 @@ import { generateResponse } from './openaiclient';
 */
 import dotenv from 'dotenv';
 dotenv.config();
+//local testing purposes
+import fetch from 'node-fetch';
 
 // import dotenv from 'dotenv';
 // dotenv.config({ path: 'DAVITA2/.env' });

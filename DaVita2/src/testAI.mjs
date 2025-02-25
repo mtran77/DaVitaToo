@@ -5,7 +5,7 @@ import { generateResponse } from "./openaiclient.js";
 
 // added because I couldnt tell if it was running
 console.log("Starting test...");
-console.log("OpenAI API Key:", process.env.OPENAI_API_KEY);
+//console.log("OpenAI API Key:", process.env.OPENAI_API_KEY);
 
 //console.log('OpenAI API Key:', process.env.OPENAI_API_KEY);
 
