@@ -19,6 +19,7 @@ dist/
 # Package files
 *.jar
 
+#ignore passwords in env file
 .env
 
 # Maven
