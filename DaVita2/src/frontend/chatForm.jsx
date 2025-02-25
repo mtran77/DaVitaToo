@@ -6,30 +6,23 @@ import {
     FormFooter,
     Label,
     Button,
-    useForm,
-
+    useForm
   } from "@forge/react";
-  
+
   function ChatboxForm (){
-    const { handleSubmit, register, getFieldId } = useForm();
-  
+    const { handleSubmit, getFieldId } = useForm();
     const login = (data) => {
       // handle data inputs
       console.log(data);
     };
   
     return (
-      <Form onSubmit={handleSubmit(login)}
-      style={{
-        backgroundColor: "red", 
-        padding: "16px",          
-      }}
-      >
-        <FormSection>
+      <Form onSubmit={handleSubmit(login)}> 
+        <FormSection >
           <Label labelFor={getFieldId("userQuery")}>
             User Label Here
           </Label>
-          <TextArea placeholder="Start Chatting" {...register("userQuery", { required: true })} />
+          <TextArea placeholder="Start Chatting" />
         </FormSection>
         <FormFooter>
           <Button appearance="primary" type="submit">
