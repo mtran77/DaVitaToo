@@ -1,10 +1,9 @@
 import React from "react";
-import { Heading, Box, Stack, xcss } from "@forge/react";
+import { Box, xcss } from "@forge/react";
 import ChatboxForm from "./chatForm.jsx";
 
 // Styles
 const cardStyle = xcss({
-    // color.background.accent.purple.subtlest
   backgroundColor: "color.background.neutral.bold.pressed",
   padding: "space.200",
   borderColor: "color.border.focused",
