@@ -4,7 +4,6 @@ import {
     TextArea,
     FormSection,
     FormFooter,
-    Label,
     Button,
     useForm
   } from "@forge/react";
@@ -19,16 +18,13 @@ import {
     return (
       <Form onSubmit={handleSubmit(login)}> 
         <FormSection >
-          <Label labelFor={getFieldId("userQuery")}>
-            User Label Here
-          </Label>
           <TextArea placeholder="Start Chatting" />
-        </FormSection>
-        <FormFooter>
           <Button appearance="primary" type="submit">
             Submit
           </Button>
-        </FormFooter>
+        </FormSection>
+        {/* <FormFooter>
+        </FormFooter> */}
       </Form>
     );
   }
