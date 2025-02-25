@@ -4,6 +4,10 @@ import { generateResponse } from './openaiclient';
 */
 import dotenv from 'dotenv';
 dotenv.config();
+
+// import dotenv from 'dotenv';
+// dotenv.config({ path: 'DAVITA2/.env' });
+
 import api from '@forge/api';
 
 
