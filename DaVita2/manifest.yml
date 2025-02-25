@@ -1,4 +1,14 @@
 modules:
+  http:
+    - key: test-endpoint
+      handler: test.run
+      routes:
+        - path: /test
+  http:
+    - key: test-openai
+      handler: test.openaiTest
+      routes:
+        - path: /test-openai
   macro:
     - key: davita2-hello-world-macro
       resource: main

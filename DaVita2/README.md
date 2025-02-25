@@ -34,3 +34,7 @@ forge tunnel
 - Use the `forge install` command when you want to install the app on a new site.
 - Once the app is installed on a site, the site picks up the new app changes you deploy without needing to rerun the install command.
 
+To do:
+create .env file 
+add api keys to that file
+
