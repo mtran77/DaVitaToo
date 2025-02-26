@@ -11,7 +11,7 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const AUTH_HEADER = `Basic ${Buffer.from(`${process.env.CONFLUENCE_EMAIL}:${process.env.CONFLUENCE_API_TOKEN}`).toString('base64')}`;
 
 async function fetchConfluenceDocs() {
-    const cqlQuery = encodeURIComponent('(label = "training") ORDER BY lastModified DESC');
+    const cqlQuery = encodeURIComponent('(label = "testing") ORDER BY lastModified DESC');
     const url = `${CONFLUENCE_BASE_URL}/content/search?limit=2&cql=${cqlQuery}&expand=space,body.view`;
 
     console.log("\n🔹 Fetching from Confluence:", url);
@@ -32,7 +32,7 @@ async function fetchConfluenceDocs() {
 
         const data = await response.json();
         if (data.results.length === 0) {
-            console.log("⚠️ No documents found with the tag 'training'.");
+            console.log("⚠️ No documents found with the tag 'testing'.");
             return null;
         }
 
@@ -54,7 +54,7 @@ async function fetchOpenAIResponse(context) {
         model: 'gpt-4o',
         messages: [
             { role: 'system', content: 'You are a helpful assistant that summarizes documents.' },
-            { role: 'user', content: `Here are some documents:\n${context}\n\nCan you summarize these?` }
+            { role: 'user', content: `Here are some documents:\n${context}\n\nCan you summarize these? Keep it short and concise. only return 1 to 5 sentences.` }
         ]
     };
 
