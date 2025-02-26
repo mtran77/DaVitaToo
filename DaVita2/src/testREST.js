@@ -1,22 +1,22 @@
-//for testing confluenceclient.js purposes
+//this document tests the search function of confluence REST API by tags
+//tag list: compliance- general-medical- kidney-disease- kidney-dialysis- medical- manual- meeting_minutes- scheduling- training test testing 
+
+import { searchDocumentsByTags } from './confluenceclient.js';
 
 
-import { searchDocumentsByTags } from './confluenceclient';
-
-export async function run(request) {
+async function test() {
   try {
-    // compliance- general-medical- kidney-disease- kidney-dialysis- medical- manual- meeting_minutes- scheduling- training 
+    console.log("Starting test for Confluence API...");
 
+    // adds tags you want to search
+    const tags = ['training', 'general-medical'];
+    const results = await searchDocumentsByTags(tags);
+    // for logging
+    console.log("Search Results:", JSON.stringify(results, null, 2));
 
-    const results = await searchDocumentsByTags(['training', 'general-medical']);
-    return {
-      statusCode: 200,
-      body: JSON.stringify(results)
-    };
   } catch (error) {
-    return {
-      statusCode: 500,
-      body: error.toString()
-    };
+    console.error("Error fetching documents:", error);
   }
 }
+
+test();
