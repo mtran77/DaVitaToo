@@ -9,14 +9,14 @@ import {
   } from "@forge/react";
 
   function ChatboxForm (){
-    const { handleSubmit, getFieldId } = useForm();
-    const login = (data) => {
+    const { handleSubmit } = useForm();
+    const userQuery = (data) => {
       // handle data inputs
       console.log(data);
     };
   
     return (
-      <Form onSubmit={handleSubmit(login)}> 
+      <Form onSubmit={handleSubmit(userQuery)}> 
         <FormSection >
           <TextArea placeholder="Start Chatting" />
           <Button appearance="primary" type="submit">
