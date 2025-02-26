@@ -1,19 +1,18 @@
 // for handling OpenAI API Calls
-/* Call to run:
-import { generateResponse } from './openaiclient'; 
-*/
+//_______________________
+//local testing purposes
+//import fetch from 'node-fetch';
+//____________________________
+
+
 import dotenv from 'dotenv';
 dotenv.config();
-//local testing purposes
-import fetch from 'node-fetch';
-
-// import dotenv from 'dotenv';
-// dotenv.config({ path: 'DAVITA2/.env' });
 
 import api from '@forge/api';
 
-
 export async function generateResponse(question, context) {
+  console.log("Waiting 5 seconds before calling OpenAI...");
+  await wait(5000); // Add a 5-second delay before making the API call
   // Combine user input + docs and create a prompt for OpenAI
   const prompt = `User question: ${question}\n\nRelevant documents:\n${context}\n\nProvide a detailed answer with references.`;
   // add more detailed prompting as we go
@@ -21,23 +20,22 @@ export async function generateResponse(question, context) {
   //Chat Completion endpoint.
   const payload = {
     model: 'gpt-4o',
-    //TO DO: verify model
     messages: [
       { role: 'system', content: 'You are a helpful assistant that provides clear answers based on provided context.' },
-      // add more context for prompting later
       { role: 'user', content: prompt }
     ]
   };
 
   // call POST request to OpenAI's API - payload
-  const response = await api.fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
-    },
-    body: JSON.stringify(payload)
-  });
+  try {
+    const response = await api.fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+      },
+      body: JSON.stringify(payload)
+    });
 
   // if call fails
   if (!response.ok) {
@@ -46,6 +44,10 @@ export async function generateResponse(question, context) {
   }
 
   const data = await response.json();
-  //return generated info from the first choice
-  return data.choices[0].message.content;
+    return data.choices[0]?.message?.content || "I couldn't generate a response. Check error logs.";
+  } 
+  catch (error) {
+    console.error("OpenAI API request failed:", error);
+    return "There was an issue retrieving a response.";
+  }
 }

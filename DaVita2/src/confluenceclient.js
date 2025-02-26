@@ -2,15 +2,13 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //https://miscapstones25.atlassian.net/wiki/home
-// import api from '@forge/api';
+import api from '@forge/api';
  
 export async function searchDocumentsByTags(tags) {
     //create a confluence query lang. string from tags
     const cqlQuery = tags.map(tag => `label = "${tag}"`).join(' OR ');
     const  encodedCql = encodeURIComponent(`(${cqlQuery}) ORDER BY lastModified DESC`);
-    
-    //create URL (for search endpoint) - limit is 10 - then expand the body.view fields
-    //change limit to 5 is run times are long 
+    //create URL (for search endpoint) - limit is 10 - then expand the body.view fields  - change limit to 5 is run times are long 
     const URL = `https://miscapstones25.atlassian.net/wiki/rest/api/content/search?limit=10&cql=${encodedCql}&expand=space,body.view`;
     
     console.log("Fetching from Confluence:", URL)
@@ -35,7 +33,8 @@ export async function searchDocumentsByTags(tags) {
 
   const data = await response.json();
         console.log("Confluence Data Received:", data.results.length, "results");
-        return data.results;
+        //return data.results;
+        return data.results || [];
 
     } catch (error) {
         console.error("Fetch failed:", error);

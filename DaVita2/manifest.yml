@@ -4,11 +4,10 @@ modules:
       handler: test.run
       routes:
         - path: /test
-  # http:
-  #   - key: test-openai
-  #     handler: test.openaiTest
-  #     routes:
-  #       - path: /test-openai
+    - key: test-openai
+      handler: test.openaiTest
+      routes:
+        - path: /test-openai
   macro:
     - key: davita2-hello-world-macro
       resource: main
@@ -19,6 +18,8 @@ modules:
   function:
     - key: resolver
       handler: index.handler
+    - key: chatbot-resolver
+      handler: resolver.handler
 resources:
   - key: main
     path: src/frontend/index.jsx
@@ -26,3 +27,9 @@ app:
   runtime:
     name: nodejs22.x
   id: ari:cloud:ecosystem::app/160ec019-0254-4970-b409-cd1c4be5bf60
+  id: "your-forge-app-id"
+permissions:
+  scopes:
+    - read:confluence-content
+    - read:confluence-space.summary
+    - read:confluence-content.all
