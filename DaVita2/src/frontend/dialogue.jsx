@@ -9,18 +9,10 @@ const cardStyle = xcss({
     width: "40%",
   });
 
-//   color.text.inverse
-
-//* does not work
-const headingStyle = xcss({
-    color: "Neutral1000", // Use a valid color token
-});
-
-
 function DialogueBox(){
     return(
         <Box xcss={cardStyle}>
-            <Heading as="h5" xcss={headingStyle}>
+            <Heading as="h5">
                 Ignorant branched humanity led now marianne too strongly entrance. 
                 Rose to shew bore no ye of paid rent form. Old design are dinner better nearer silent excuse. 
                 She which are maids boy sense her shade.

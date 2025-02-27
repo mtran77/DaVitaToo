@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react"
 import { Box, xcss } from "@forge/react";
 import ChatboxForm from "./chatForm.jsx";
 import DialogueBox from "./dialogue.jsx"
+import UserDialogueBox from "./userInputDialogue.jsx";
 
 // Styles
 const cardStyle = xcss({
@@ -15,14 +16,19 @@ const cardStyle = xcss({
   height: "500px", 
 });
 
+
 function StyledBox() {
+  const [userMessage, setUserMessage] = useState("");
+
   return (
     <Box xcss={cardStyle}>
-        <DialogueBox/>
-        {/* nested component */}
-        <ChatboxForm />  
+      <DialogueBox />
+      {userMessage && <UserDialogueBox message={userMessage} />}
+      <ChatboxForm setUserMessage={setUserMessage} />
     </Box>
   );
 }
+
+
 
 export default StyledBox;

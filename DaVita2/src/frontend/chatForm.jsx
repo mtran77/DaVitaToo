@@ -1,32 +1,24 @@
-import React from 'react';
-import {
-    Form,
-    TextArea,
-    FormSection,
-    FormFooter,
-    Button,
-    useForm
-  } from "@forge/react";
+import React from "react";
+import { Form, TextArea, FormSection, Button, useForm } from "@forge/react";
 
-  function ChatboxForm (){
-    const { handleSubmit } = useForm();
+  function ChatboxForm({ setUserMessage }) {
+    const { handleSubmit, register } = useForm();
+  
     const userQuery = (data) => {
-      // handle data inputs
-      console.log(data);
+      setUserMessage(data.userInput);
     };
   
     return (
-      <Form onSubmit={handleSubmit(userQuery)}> 
-        <FormSection >
-          <TextArea placeholder="Start Chatting" />
+      <Form onSubmit={handleSubmit(userQuery)}>
+        <FormSection>
+          <TextArea placeholder="Start Chatting" {...register("userInput")} />
           <Button appearance="primary" type="submit">
             Submit
           </Button>
         </FormSection>
-        {/* <FormFooter>
-        </FormFooter> */}
       </Form>
     );
   }
+  
   
   export default ChatboxForm

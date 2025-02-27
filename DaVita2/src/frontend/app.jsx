@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { invoke } from '@forge/bridge';
-import StyledBox from './stylishBox.jsx';
+import StyledBox from './StyledBox.jsx';
 
 const App = () => {
   const [data, setData] = useState(null);

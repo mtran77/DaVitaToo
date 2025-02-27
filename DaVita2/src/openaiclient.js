@@ -30,20 +30,20 @@ export async function generateResponse(question, context) {
   };
 
   // call POST request to OpenAI's API - payload
-  const response = await api.fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
-    },
-    body: JSON.stringify(payload)
-  });
+  // const response = await api.fetch('https://api.openai.com/v1/chat/completions', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+  //   },
+  //   body: JSON.stringify(payload)
+  // });
 
-  // if call fails
-  if (!response.ok) {
-    console.error('there was an error calling OpenAI API:', response.status, response.statusText);
-    throw new Error(`Error calling OpenAI API: ${response.status}`);
-  }
+  // // if call fails
+  // if (!response.ok) {
+  //   console.error('there was an error calling OpenAI API:', response.status, response.statusText);
+  //   throw new Error(`Error calling OpenAI API: ${response.status}`);
+  // }
 
   const data = await response.json();
   //return generated info from the first choice
