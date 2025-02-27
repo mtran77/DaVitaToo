@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, xcss, Heading } from "@forge/react";
+import { Box, xcss } from "@forge/react";
 
 // Styles for the dialogue box
+//doesnt work
 const cardStyle = xcss({
   padding: "space.150",
   width: "40%",
@@ -22,7 +23,7 @@ const userMessageStyle = xcss({
   width: "40%",
 });
 
-// * user message is the data and sent to 
+// * 4. user input is sent from chatForm
 function UserDialogueBox({ message }) {
   return <Box xcss={userMessageStyle}>{message ? message : ""}</Box>;
 }

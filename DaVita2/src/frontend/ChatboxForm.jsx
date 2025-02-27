@@ -1,15 +1,16 @@
 import React from "react";
 import { Form, TextArea, FormSection, Button, useForm } from "@forge/react";
 
-  function ChatboxForm({ setUserMessage }) {
+  function ChatboxForm({ setUserMessage }) { //2. recieves user input (setUserMessage) from StyledBox
     const { handleSubmit, register } = useForm();
   
     const userQuery = (data) => {
-      setUserMessage(data.userInput);
+      setUserMessage(data.userInput); //3. sends the user input to userInputDialogue.jsx
     };
   
     return (
-      <Form onSubmit={handleSubmit(userQuery)}>
+      // 1. onSubmit starts the user input reading
+      <Form onSubmit={handleSubmit(userQuery)}> 
         <FormSection>
           <TextArea placeholder="Start Chatting" {...register("userInput")} />
           <Button appearance="primary" type="submit">
@@ -19,6 +20,5 @@ import { Form, TextArea, FormSection, Button, useForm } from "@forge/react";
       </Form>
     );
   }
-  
   
   export default ChatboxForm
