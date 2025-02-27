@@ -2,6 +2,7 @@
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import readline from 'readline';
+//import api from '@forge/api';
 
 dotenv.config();
 
@@ -123,7 +124,7 @@ async function fetchOpenAIResponse(question, context) {
         model: 'gpt-4o',
         messages: [
             { role: 'system', content: 'You are a helpful assistant providing clear answers based on provided documents only.' },
-            { role: 'user', content: `User question: "${question}"\n\nRelevant documents:\n${context}\n\nProvide a short and concise answer based only on these documents. Supply the title and source of all documents you were given to form this answer.` }
+            { role: 'user', content: `User question: "${question}"\n\nRelevant documents:\n${context}\n\nProvide a short and concise answer based only on these documents. 1-4 sentences. Supply the title of all documents you were given to form this answer.` }
         ]
     };
 
