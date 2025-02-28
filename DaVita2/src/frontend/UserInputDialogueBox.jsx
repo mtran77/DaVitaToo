@@ -5,7 +5,7 @@ import { Box, xcss } from "@forge/react";
 //doesnt work
 const cardStyle = xcss({
   padding: "space.150",
-  width: "40%",
+  width: "100%",
   position: "absolute",
   right: "20px",
   top: "20px",
@@ -20,7 +20,7 @@ const userMessageStyle = xcss({
   borderRadius: "border.radius",
   marginTop: "space.100",
   color: "color.text.inverse",
-  width: "40%",
+  width: "100%",
 });
 
 // * 4. user input is sent from chatForm

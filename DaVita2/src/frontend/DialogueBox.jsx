@@ -5,7 +5,7 @@ import { Box, xcss } from "@forge/react";
 const cardStyle = xcss({
     backgroundColor: "color.background.neutral.bold.pressed",
     padding: "space.150",
-    width: "40%",
+    width: "100%",
   });
 
 function DialogueBox({aiResponse}){
