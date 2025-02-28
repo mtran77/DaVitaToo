@@ -13,6 +13,7 @@ import { Form, TextArea, FormSection, Button, useForm } from "@forge/react";
       <Form onSubmit={handleSubmit(userQuery)}> 
         <FormSection>
           <TextArea placeholder="Start Chatting" {...register("userInput")} />
+          
           <Button appearance="primary" type="submit">
             Submit
           </Button>

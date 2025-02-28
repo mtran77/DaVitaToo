@@ -3,15 +3,18 @@ import React from "react";
 import { Box, xcss } from "@forge/react";
 
 const cardStyle = xcss({
-    backgroundColor: "color.background.neutral.bold.pressed",
-    padding: "space.150",
-    width: "100%",
+    backgroundColor: "color.background.accent.gray.subtle.hovered", 
+  padding: "space.100",
+  borderRadius: "border.radius",
+  marginTop: "space.100",
+  color: "color.text.inverse",
+  width: "100%",
   });
 
-function DialogueBox({aiResponse}){
+function DialogueBox(){
     return(
         <Box xcss={cardStyle}>
-            {aiResponse ? aiResponse : ""} 
+            What is kidney dialysis?
         </Box>
     );
 }

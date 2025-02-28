@@ -24,8 +24,8 @@ const userMessageStyle = xcss({
 });
 
 // * 4. user input is sent from chatForm
-function UserDialogueBox({ message }) {
-  return <Box xcss={userMessageStyle}>{message ? message : ""}</Box>;
+function UserDialogueBox({ }) {
+  return <Box xcss={userMessageStyle}>Kidney dialysis is a treatment that removes waste products and excess fluid from the blood when the kidneys are unable to do so. Do you have additional questions?</Box>;
 }
 
 export default UserDialogueBox;
