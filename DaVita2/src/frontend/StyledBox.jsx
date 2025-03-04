@@ -1,48 +1,42 @@
-import React, {useState} from "react"
+import React, { useState } from "react";
 import { Box, xcss } from "@forge/react";
 import ChatboxForm from "./ChatboxForm.jsx";
-import DialogueBox from "./DialogueBox.jsx"
+import DialogueBox from "./DialogueBox.jsx";
 import UserDialogueBox from "./UserInputDialogueBox.jsx";
+import { fetchChatResponse } from "./api.js";
 
-// calling OpenAI function from openaiclient.js
-import {fetchChatResponse} from "./api.js"
-
-// Styles
 const cardStyle = xcss({
-  backgroundColor: "color.background.neutral.bold.pressed",
   padding: "space.150",
-  borderColor: "color.border.focused",
-  borderWidth: "border.width",
-  borderStyle: "solid",
-  borderRadius: "border.radius",
   width: "100%",
-  height: "500px", 
+  height: "300%",
 });
 
 function StyledBox() {
-  const [userMessage, setUserMessage] = useState(""); //stores user message
-  //* AI call ---------- 
-  const [aiResponse, setAiResponse] = useState(""); // stores OpenAI response
-  
+  const [conversation, setConversation] = useState([]); // store both user and AI messages inside an array so that we can have a chat history
+
   const handleUserMessage = async (message) => {
-    setUserMessage(message); 
+    const newConversation = [...conversation, { sender: 'user', message }];
+    setConversation(newConversation); 
 
     try {
-      const response = await fetchChatResponse(message); // call API
-      setAiResponse(response); 
+      const response = await fetchChatResponse(message); 
+      setConversation([...newConversation, { sender: 'ai', message: response }]); 
     } catch (error) {
-  
-      setAiResponse(`Error fetching AI response: ${error.message}`);
-      console.log("error")
+      setConversation([...newConversation, { sender: 'ai', message: `Error fetching AI response: ${error.message}` }]);
     }
-    
   };
 
   return (
     <Box xcss={cardStyle}>
-        {userMessage && <UserDialogueBox message={userMessage} />}
-        {aiResponse && <DialogueBox aiResponse={aiResponse} />} 
-        <ChatboxForm setUserMessage={handleUserMessage} />
+      {/* append new query to conversation array */}
+      {conversation.map((entry, index) => 
+        entry.sender === 'user' ? (
+          <UserDialogueBox key={index} message={entry.message} />
+        ) : (
+          <DialogueBox key={index} aiResponse={entry.message} />
+        )
+      )}
+      <ChatboxForm handleUserMessage={handleUserMessage} />
     </Box>
   );
 }

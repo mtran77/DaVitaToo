@@ -2,18 +2,6 @@ import React from "react";
 import { Box, xcss } from "@forge/react";
 
 // Styles for the dialogue box
-//doesnt work
-const cardStyle = xcss({
-  padding: "space.150",
-  width: "100%",
-  position: "absolute",
-  right: "20px",
-  top: "20px",
-  backgroundColor: "color.background.neutral.bold.pressed",
-  borderRadius: "border.radius",
-});
-
-
 const userMessageStyle = xcss({
   backgroundColor: "color.background.accent.blue.subtle", 
   padding: "space.100",
