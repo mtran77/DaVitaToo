@@ -7,8 +7,6 @@ import { generateResponse } from "./openaiclient.js";
 console.log("Starting test...");
 //console.log("OpenAI API Key:", process.env.OPENAI_API_KEY);
 
-//console.log('OpenAI API Key:', process.env.OPENAI_API_KEY);
-
 
 //edited the test script to log
 async function test() {
