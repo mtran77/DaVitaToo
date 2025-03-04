@@ -26,9 +26,12 @@ function StyledBox() {
     }
   };
 
+  const handleReset = () => {
+    setConversation([]);
+  };
+
   return (
     <Box xcss={cardStyle}>
-      {/* append new query to conversation array */}
       {conversation.map((entry, index) => 
         entry.sender === 'user' ? (
           <UserDialogueBox key={index} message={entry.message} />
@@ -36,9 +39,11 @@ function StyledBox() {
           <DialogueBox key={index} aiResponse={entry.message} />
         )
       )}
-      <ChatboxForm handleUserMessage={handleUserMessage} />
+      <ChatboxForm handleUserMessage={handleUserMessage} handleReset={handleReset} />
     </Box>
   );
 }
 
 export default StyledBox;
+
+
