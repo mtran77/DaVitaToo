@@ -37,6 +37,9 @@ permissions:
       backend:
         - 'https://api.openai.com/v1/chat/completions'
         - 'https://api.openai.com/api/chat'
+        - "https://api.openai.com"
+
+
    
 
 

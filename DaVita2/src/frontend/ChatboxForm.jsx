@@ -5,7 +5,6 @@ import { Form, TextArea, FormSection, Button, useForm, Box } from "@forge/react"
     const { handleSubmit, register } = useForm();
     const userQuery = (data) => {
       setUserMessage(data.userInput); //3. sends the user input to userInputDialogue.jsx
-      
     };
     return (
       // 1. onSubmit starts the user input reading

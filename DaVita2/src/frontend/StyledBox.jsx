@@ -23,16 +23,19 @@ function StyledBox() {
   const [userMessage, setUserMessage] = useState(""); //stores user message
   //* AI call ---------- 
   const [aiResponse, setAiResponse] = useState(""); // stores OpenAI response
+  
   const handleUserMessage = async (message) => {
     setUserMessage(message); 
 
     try {
-      const response = await fetchChatResponse(message, ""); // call API
+      const response = await fetchChatResponse(message); // call API
       setAiResponse(response); 
     } catch (error) {
-      // console.error("Error fetching AI response:", error);
-      setAiResponse("Error fetching AI response:", error);
+  
+      setAiResponse(`Error fetching AI response: ${error.message}`);
+      console.log("error")
     }
+    
   };
 
   return (
