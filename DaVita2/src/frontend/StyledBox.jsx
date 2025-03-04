@@ -30,11 +30,11 @@ function StyledBox() {
       const response = await fetchChatResponse(message, ""); // call API
       setAiResponse(response); 
     } catch (error) {
-      console.error("Error fetching AI response:", error);
+      // console.error("Error fetching AI response:", error);
+      setAiResponse("Error fetching AI response:", error);
     }
   };
 
-  
   return (
     <Box xcss={cardStyle}>
         {userMessage && <UserDialogueBox message={userMessage} />}

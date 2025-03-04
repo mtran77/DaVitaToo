@@ -1,6 +1,6 @@
 // this calls the back end function 
 export async function fetchChatResponse(userInput) {
-    const response = await fetch("/api/chat", {
+    const response = await fetch("https://api.openai.com/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question: userInput }),

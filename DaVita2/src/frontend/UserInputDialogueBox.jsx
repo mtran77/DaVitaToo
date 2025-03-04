@@ -19,8 +19,10 @@ const userMessageStyle = xcss({
   padding: "space.100",
   borderRadius: "border.radius",
   marginTop: "space.100",
+  marginBottom:"space.100",
   color: "color.text.inverse",
   width: "100%",
+  
 });
 
 // * 4. user input is sent from chatForm
