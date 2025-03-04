@@ -5,7 +5,7 @@ import DialogueBox from "./DialogueBox.jsx"
 import UserDialogueBox from "./UserInputDialogueBox.jsx";
 
 // calling OpenAI function from openaiclient.js
-import {generateResponse} from "../openaiclient.js"
+import {fetchChatResponse} from "./api.js"
 
 // Styles
 const cardStyle = xcss({
@@ -27,14 +27,14 @@ function StyledBox() {
     setUserMessage(message); 
 
     try {
-      const response = await generateResponse(message, ""); // call API
+      const response = await fetchChatResponse(message, ""); // call API
       setAiResponse(response); 
     } catch (error) {
       console.error("Error fetching AI response:", error);
     }
   };
 
-  // * ---------------
+  
   return (
     <Box xcss={cardStyle}>
         {userMessage && <UserDialogueBox message={userMessage} />}
