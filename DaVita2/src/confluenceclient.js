@@ -3,6 +3,8 @@
 //-------------------------------------------------------------------------------------------------------------------------------------
 //https://miscapstones25.atlassian.net/wiki/home
 import api from '@forge/api';
+export default {};
+
  
 export async function searchDocumentsByTags(tags) {
     //create a confluence query lang. string from tags

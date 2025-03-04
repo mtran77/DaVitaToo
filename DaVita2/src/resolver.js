@@ -4,6 +4,7 @@
 import { searchDocumentsByTags } from './confluenceclient';
 import { generateResponse } from './openaiclient';
 
+
 export async function handler(request) {
   try {
     // Get user question from request

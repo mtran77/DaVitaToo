@@ -17,7 +17,7 @@ modules:
       title: DaVita2
   function:
     - key: resolver
-      handler: index.handler
+      handler: resolver.handler
     - key: chatbot-resolver
       handler: resolver.handler
 resources:
@@ -27,7 +27,7 @@ app:
   runtime:
     name: nodejs22.x
   id: ari:cloud:ecosystem::app/160ec019-0254-4970-b409-cd1c4be5bf60
-  id: "your-forge-app-id"
+  # id: "your-forge-app-id"
 permissions:
   scopes:
     - read:confluence-content
