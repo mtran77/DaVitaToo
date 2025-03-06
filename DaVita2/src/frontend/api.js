@@ -1,12 +1,13 @@
-// this calls the back end function 
+// this calls the back end function - fixed with bridging 
+import { invoke } from "@forge/bridge";
+
 export async function fetchChatResponse(userInput) {
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: userInput }),
-    });
-  
-    const data = await response.json();
-    return data.answer;
+  try {
+    const response = await invoke("chatbot-resolver", { question: userInput });
+
+    return response.answer;
+  } catch (error) {
+    console.error("Error getting chat response:", error);
+    return "Error getting response.";
   }
-  
+}

@@ -1,24 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { Text } from '@forge/react';
-import { invoke } from '@forge/bridge';
-//My Components
-import ChatboxForm from './chatForm.jsx'
-//box styled
-import StyledBox from './stylishBox.jsx';
-
+import React, { useState } from "react";
+import ChatboxForm from "./chatForm.jsx";
+import StyledBox from "./stylishBox.jsx";
 
 const App = () => {
-  const [data, setData] = useState(null);
+  const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    invoke('getText', { example: 'my-invoke-variable' }).then(setData);
-  }, []);
+  const handleNewMessage = (userMessage, aiMessage) => {
+    setMessages([...messages, { user: userMessage, ai: aiMessage }]);
+  };
 
   return (
-    <> 
-      <StyledBox/>
+    <>
+      <StyledBox>
+        <ChatboxForm onNewMessage={handleNewMessage} />
+      </StyledBox>
+
+      <div>
+        <h3>Chat History</h3>
+        {messages.map((msg, index) => (
+          <div key={index}>
+            <p><strong>User:</strong> {msg.user}</p>
+            <p><strong>AI:</strong> {msg.ai}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
 
 export default App;
+

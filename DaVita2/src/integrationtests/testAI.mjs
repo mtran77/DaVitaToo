@@ -1,7 +1,7 @@
 // for testing openai connection
 // npm install dotenv
 
-import { generateResponse } from "./openaiclient.js";
+import { generateResponse } from "../openaiclient.js";
 
 // added because I couldnt tell if it was running
 console.log("Starting test...");

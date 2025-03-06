@@ -1,13 +1,4 @@
 modules:
-  http:
-    - key: test-endpoint
-      handler: test.run
-      routes:
-        - path: /test
-    - key: test-openai
-      handler: test.openaiTest
-      routes:
-        - path: /test-openai
   macro:
     - key: davita2-hello-world-macro
       resource: main
@@ -17,8 +8,6 @@ modules:
       title: DaVita2
   function:
     - key: resolver
-      handler: index.handler
-    - key: chatbot-resolver
       handler: resolver.handler
 resources:
   - key: main
@@ -27,9 +16,23 @@ app:
   runtime:
     name: nodejs22.x
   id: ari:cloud:ecosystem::app/160ec019-0254-4970-b409-cd1c4be5bf60
-  id: "your-forge-app-id"
 permissions:
   scopes:
-    - read:confluence-content
     - read:confluence-space.summary
     - read:confluence-content.all
+  external:
+    fetch:
+      backend:
+        - "https://api.openai.com/v1/chat/completions"
+        - "https://miscapstones25.atlassian.net/wiki/rest/api/content/search"
+        - "https://miscapstones25.atlassian.net"
+        - "https://cdn.jsdelivr.net"
+        - "https://cdnjs.cloudflare.com"
+  content:
+    scripts:
+      - "unsafe-inline"
+    styles:
+      - "unsafe-inline"
+
+
+
