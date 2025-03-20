@@ -1,14 +1,4 @@
 modules:
-  # http:
-  #   - key: test-endpoint
-  #     handler: test.run
-  #     routes:
-  #       - path: /test
-  # http:
-  #   - key: test-openai
-  #     handler: test.openaiTest
-  #     routes:
-  #       - path: /test-openai
   macro:
     - key: davita2-hello-world-macro
       resource: main
@@ -28,8 +18,6 @@ app:
   id: ari:cloud:ecosystem::app/160ec019-0254-4970-b409-cd1c4be5bf60
 permissions:
   scopes:
-  # this one is not a valid one
-    # - 'read:confluence-content'
     - 'read:confluence-space.summary'
     - 'read:confluence-content.all'
   external:
