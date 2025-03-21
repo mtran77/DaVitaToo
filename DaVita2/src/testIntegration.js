@@ -9,6 +9,7 @@ dotenv.config();
 const CONFLUENCE_BASE_URL = 'https://miscapstones25.atlassian.net/wiki/rest/api';
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const AUTH_HEADER = `Basic ${Buffer.from(`${process.env.CONFLUENCE_EMAIL}:${process.env.CONFLUENCE_API_TOKEN}`).toString('base64')}`;
+//console.log("Loaded OpenAI API Key:", process.env.OPENAI_API_KEY);
 
 // predefined list of tags. 
 //https://miscapstones25.atlassian.net/wiki/labels/listlabels-alphaview.action
@@ -80,7 +81,9 @@ async function fetchConfluenceDocs(tags) {
     const encodedCql = encodeURIComponent(`(${cqlQuery}) ORDER BY lastModified DESC`);
     const url = `${CONFLUENCE_BASE_URL}/content/search?limit=2&cql=${encodedCql}&expand=space,body.view`;
 
-    console.log("Fetching from Confluence:", url);
+    //console.log("Fetching from Confluence:", url);
+    //uncomment this after demo
+    console.log("Fetching from Confluence");
 
     try {
         // send request to confluence 
