@@ -2,13 +2,12 @@ modules:
   macro:
     - key: davita2-hello-world-macro
       resource: main
-      render: native
-      resolver:
-        function: resolver
-      title: DaVita2
+      title: DaVita2 Chat
   function:
     - key: resolver
       handler: index.handler
+    - key: chatbot-resolver
+      handler: resolver.handler
 resources:
   - key: main
     path: src/frontend/index.jsx
@@ -18,16 +17,6 @@ app:
   id: ari:cloud:ecosystem::app/160ec019-0254-4970-b409-cd1c4be5bf60
 permissions:
   scopes:
-    - 'read:confluence-space.summary'
-    - 'read:confluence-content.all'
-  external:
-    fetch:
-      backend:
-        - 'https://api.openai.com/v1/chat/completions'
-        - 'https://api.openai.com/api/chat'
-        - "https://api.openai.com"
-
-
-   
-
-
+    - read:confluence-content
+    - read:confluence-space.summary
+    - read:confluence-content.all

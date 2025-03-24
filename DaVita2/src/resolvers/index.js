@@ -1,13 +1,13 @@
-import Resolver from '@forge/resolver';
+// import Resolver from '@forge/resolver';
 
-const resolver = new Resolver();
+// const resolver = new Resolver();
 
-resolver.define('getText', (req) => {
-  console.log(req);
+// resolver.define('getText', (req) => {
+//   console.log(req);
 
-  return 'coming from index.js';
-});
+//   return 'coming from index.js';
+// });
 
-export const handler = resolver.getDefinitions();
+// export const handler = resolver.getDefinitions();
 
 //forge entry point
