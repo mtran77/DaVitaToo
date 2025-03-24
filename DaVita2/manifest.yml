@@ -1,11 +1,8 @@
 modules:
-  macro:
-    - key: davita2-hello-world-macro
+  customUI:
+    - key: davita2-chat-ui
       resource: main
-      render: native
-      resolver:
-        function: resolver
-      title: DaVita2
+      title: DaVita2 Chat
   function:
     - key: resolver
       handler: resolver.handler
@@ -26,13 +23,16 @@ permissions:
         - "https://api.openai.com/v1/chat/completions"
         - "https://miscapstones25.atlassian.net/wiki/rest/api/content/search"
         - "https://miscapstones25.atlassian.net"
-        - "https://cdn.jsdelivr.net"
-        - "https://cdnjs.cloudflare.com"
-  content:
-    scripts:
-      - "unsafe-inline"
-    styles:
-      - "unsafe-inline"
+contentSecurityPolicy:
+  script-src:
+    - "'self'"
+    - "https://api.openai.com"
+    - "https://cdnjs.cloudflare.com"
+    - "https://cdn.jsdelivr.net"
+    - "'unsafe-inline'"
+  style-src:
+    - "'self'"
+    - "'unsafe-inline'"
 
 
 
