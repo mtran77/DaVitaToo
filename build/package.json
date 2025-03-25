@@ -6,10 +6,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-  "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
-  "dev": "vite --host",
-  "build": "tsc && vite build",
-  "preview": "vite preview"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
 },
   "devDependencies": {
     "eslint": "^8.56.0",
